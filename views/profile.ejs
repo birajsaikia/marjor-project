@@ -1,0 +1,18 @@
+<h1>HI I AM  </h1>
+
+<img src="<%= user.avatar%>" alt="<%= user.name%>" height="100px" width="100px" style="border-radius: 50%;">
+<% if(user.id == profile_user.id){%>
+    <p><%= profile_user.name %></p>
+    <p><%= profile_user.email%></p>
+    <form action="/user/update/<%=profile_user.id%>" enctype="multipart/form-data" method="post">
+        <input type="text" name="name" placeholder="your name" value="<%=profile_user.name%>" required>
+        <input type="email" name="email" placeholder="your name" value="<%=profile_user.email%>" required>
+        <input type="file" name="avatar" placeholder="profile pic">
+        <input type="submit" value="Update">
+    </form>
+
+<%}else{%>
+    <p><%= profile_user.name %></p>
+    <p><%= profile_user.email%></p>
+
+<%}%>
